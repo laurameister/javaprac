@@ -1,0 +1,134 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package arraylistcw;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+/**
+ *
+ * @author pwntcp
+ */
+public class ArraylistCW {
+ 
+    ArrayList<Integer> a = new ArrayList<>();
+    ArrayList<String> c = new ArrayList<>();
+    //int size = a.size();
+    
+    static int sumOfElementsInArray(ArrayList<Integer> a){
+        int sum = 0;
+        for(int i=0;i<a.size();i++){
+            sum = sum +a.get(i);
+        }
+        return sum;
+    }
+    static int largestNumberInArray(ArrayList<Integer> a){
+        int max = a.get(0);
+        for(int j=0;j<a.size();j++){
+            if(max<a.get(j)){
+                max = a.get(j);
+            }
+        }
+        return max;
+    }
+    
+    
+    static void stringCheck(ArrayList<String> c, String x){
+        for(int i=0;i<c.size();i++){
+            String y = c.get(i);
+            if (x.equals(y)){
+                System.out.println("It is there.");
+            }
+            else{
+                System.out.println("It is not there");
+                //break;
+            }
+        }
+    }
+    
+    static boolean isPresent(ArrayList<Integer> a, int b){
+        for(int element : a){
+            if(element == b) return true;
+        }
+        return false;
+    }
+    
+    static int isEven(ArrayList<Integer> a){
+        int cnt = 0;
+        for (int element : a){
+            
+            if (element%2==0)
+                cnt++;
+        }
+        return cnt;
+    }
+    
+    static void palindromeCount(ArrayList<String> c){
+        
+        String a1 ;
+        int cnt = 0;
+        for(int i=c.size()-1;i>=0;i--){
+            a1 = c.get(i);
+            if(palindrome(a1)==true) cnt++;
+        }
+        System.out.println(cnt);
+    } 
+    static boolean palindrome(String f){
+        String rev = "";
+        for (int i=f.length()-1;i>=0;i--){
+         rev = rev + f.charAt(i);
+        }
+        if (f.equals(rev)) return true;
+        else return false;
+    }
+    
+    public static void main(String[] args) {
+        // TODO code application logic here
+        Scanner input = new Scanner(System.in);
+        ArrayList<Integer> b = new ArrayList<>();
+        ArrayList<String> d = new ArrayList<>();
+        System.out.println("Enter integer size: ");
+        int size2 = input.nextInt();
+        System.out.println("Enter some strings: ");
+        for (int i=0; i<size2; i++){
+            String x = input.next();
+            d.add(i,x);
+        }
+        palindromeCount(d);
+//        System.out.println("Enter integer size: ");
+//        int size1 = input.nextInt();
+//        System.out.println("Enter integer inputs:");
+//        for (int i = 0; i<size1; i++){
+//            int x = input.nextInt();
+//            b.add(i,x);
+//        }
+//        b.add(11);
+//        b.add(12);
+        
+//        int x = input.nextInt();
+//        System.out.println("Sum of elements in array: "+sumOfElementsInArray(b));
+//        System.out.println("Largest number in ArrayList: "+largestNumberInArray(b));
+//        System.out.println("Is it present? "+isPresent(b,x));
+        
+        
+        
+//        System.out.println("Enter string size: ");
+//        int size = input.nextInt();
+//        System.out.println("Enter strings: ");
+//        
+//        for (int i=0;i<size; i++){
+//           String e = input.next();
+//           d.add(i, e);
+//        }
+//        System.out.println("Enter another string: ");
+//        String f = input.next();
+//        stringCheck(d ,f);
+//            
+//        System.out.println("Number of even numbers in array: "+isEven(b));
+        
+    }
+    
+}
